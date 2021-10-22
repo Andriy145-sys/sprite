@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>Анімація canvas sprite</title> 
+  </head> 
+  <body> 
+    <canvas id="myCanvas" width="1098" height="528" style="background-image: url('img-back.jpg')";> 
+  </body> 
+</html>
+<script>
+  var width = 200,
+      height = 157,
+      frames = 7,
+
+      currentFrame = 0,
+      canvas = document.getElementById("myCanvas");
+ 
+  var ctx = canvas.getContext("2d");
+  var image = new Image();
+      image.src = 'dog.png';
+ 
+  var draw = function() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(image, 0, height * currentFrame, width, height, 200, 350, width, height);
+ 
+      if (currentFrame == frames) {
+        currentFrame = 0;
+      } else {
+        currentFrame++;
+      }
+  }
+ 
+  setInterval(draw, 115);
+</script>
